@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const industries = [
   {
     name: "Automotive & OEM / Dealer Operations",
-    clients: "Kia America · Hyundai Motor Company · JM&A Group",
+    clients: "Several Automotive Dealership Groups, OEM and Third Party Administrators",
     body: "Deep experience across the automotive ecosystem — at the OEM level, the district level, and the individual dealership level. We understand how dealer groups manage performance, how F&I functions within the sales process, how CRM is used and underused in automotive retail, and how digital marketing connects — or fails to connect — to showroom traffic and closed units.",
     challenges: ["Lead response time and digital lead management", "CRM adoption and pipeline discipline across multiple rooftops", "F&I performance and sales process consistency", "Marketing attribution — connecting ad spend to sold units", "District and regional performance reporting"],
     color: "border-blue-200",

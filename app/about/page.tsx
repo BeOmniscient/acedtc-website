@@ -38,7 +38,7 @@ const expertise = [
 const industries = [
   {
     name: "Automotive & OEM / Dealer Operations",
-    clients: "Kia America · Hyundai Motor Company · JM&A Group",
+    clients: "Several Automotive Dealership Groups, OEM and Third Party Administrators",
     body: "Deep experience across the automotive ecosystem — district-level performance management, F&I strategy, dealer profitability improvement, and sales process optimization at scale.",
     forClients: "ACEDTC speaks the language of automotive operations natively — from gross profit per unit to lead response protocols to multi-rooftop performance management.",
   },
