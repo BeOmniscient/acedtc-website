@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { SectionHead, PrimaryBtn, GhostBtn } from "@/components/ui";
 
 interface ServicePageProps {
   label: string;
@@ -22,8 +23,8 @@ export default function ServicePageLayout({
   label,
   title,
   subtitle,
-  ctaHref = "/contact",
-  ctaLabel = "Book a Consultation →",
+  ctaHref = "/diagnostic",
+  ctaLabel = "Book a Growth Diagnostic →",
   whoFor,
   problems,
   whatWeDo,
@@ -37,51 +38,47 @@ export default function ServicePageLayout({
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#0A1628] pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">{label}</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">{title}</h1>
-            <p className="text-white/60 text-xl leading-relaxed mb-8">{subtitle}</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href={ctaHref} className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
-                {ctaLabel}
-              </Link>
-              <Link href="/diagnostic" className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold border border-white/30 text-white hover:border-white hover:bg-white/5 transition-colors">
-                Download the Free Diagnostic
-              </Link>
-            </div>
+      <section className="relative overflow-hidden bg-bg pt-28 sm:pt-32 lg:pt-40">
+        <div className="ledger-rule pointer-events-none absolute inset-0 opacity-[0.5] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_75%,transparent)]" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+          <p className="eyebrow mb-6 flex items-center gap-3 text-muted">
+            <span className="h-px w-8 bg-accent" />
+            {label}
+          </p>
+          <h1 className="max-w-4xl font-serif text-[2.3rem] font-medium leading-[1.07] tracking-tight text-ink sm:text-5xl">
+            {title}
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-2 sm:text-xl">{subtitle}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <PrimaryBtn href={ctaHref}>{ctaLabel}</PrimaryBtn>
+            <GhostBtn href="/contact">Talk to Esad</GhostBtn>
           </div>
         </div>
       </section>
 
       {/* WHO / PROBLEMS */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Who It's For */}
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Who This Is For</p>
+              <p className="eyebrow mb-5 text-accent">Who this is for</p>
               <ul className="space-y-3">
-                {whoFor.map(item => (
-                  <li key={item} className="flex items-start gap-3 text-[#64748B]">
-                    <span className="w-5 h-5 rounded-full bg-[#EFF6FF] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-[#2563EB] text-xs font-bold">→</span>
-                    </span>
+                {whoFor.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-ink-2">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
                     <span className="text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </ScrollReveal>
 
-            {/* Problems */}
             <ScrollReveal delay={100}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Problems This Solves</p>
-              <div className="space-y-5">
-                {problems.map(p => (
-                  <div key={p.title} className="bg-[#F8F7F4] rounded-lg p-4">
-                    <p className="text-sm font-semibold text-[#0A1628] mb-1 italic">&ldquo;{p.title}&rdquo;</p>
-                    <p className="text-sm text-[#64748B] leading-relaxed">{p.body}</p>
+              <p className="eyebrow mb-5 text-accent">Problems this solves</p>
+              <div className="space-y-4">
+                {problems.map((p) => (
+                  <div key={p.title} className="rounded-lg border border-line bg-surface p-4">
+                    <p className="mb-1 font-serif text-base italic text-ink">&ldquo;{p.title}&rdquo;</p>
+                    <p className="text-sm leading-relaxed text-ink-2">{p.body}</p>
                   </div>
                 ))}
               </div>
@@ -91,20 +88,20 @@ export default function ServicePageLayout({
       </section>
 
       {/* WHAT WE DO + INCLUDED */}
-      <section className="bg-[#F8F7F4] py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="bg-surface py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">What ACEDTC Does</p>
-              <p className="text-[#64748B] leading-relaxed text-base">{whatWeDo}</p>
+              <p className="eyebrow mb-5 text-accent">What ACEDTC does</p>
+              <p className="text-base leading-relaxed text-ink-2">{whatWeDo}</p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">What&apos;s Included</p>
+              <p className="eyebrow mb-5 text-accent">What&apos;s included</p>
               <ul className="space-y-2.5">
-                {included.map(item => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-[#64748B]">
-                    <span className="text-[#2563EB] flex-shrink-0 mt-0.5 font-bold">✓</span>
-                    {item}
+                {included.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-ink-2">
+                    <span className="mt-0.5 flex-shrink-0 font-bold text-accent">✓</span>
+                    <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -114,34 +111,30 @@ export default function ServicePageLayout({
       </section>
 
       {/* USE CASES */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Example Use Cases</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1628] tracking-tight mb-12 max-w-xl">
-              What This Looks Like in Practice
-            </h2>
+            <SectionHead index="→" kicker="Example use cases" title="What this looks like in practice." />
           </ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-2">
             {useCases.map((uc, i) => (
-              <ScrollReveal key={uc.industry} delay={i * 80}>
-                <div className="border border-[#E2E8F0] rounded-xl p-7 h-full">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">{uc.industry}</p>
-                  <p className="text-[#64748B] text-sm leading-relaxed">{uc.body}</p>
+              <ScrollReveal key={uc.industry} delay={i * 70}>
+                <div className="card-seam h-full bg-surface p-7">
+                  <p className="eyebrow mb-3 text-accent">{uc.industry}</p>
+                  <p className="text-sm leading-relaxed text-ink-2">{uc.body}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
-          {/* Outcomes */}
           <ScrollReveal>
-            <div className="bg-[#0A1628] rounded-xl p-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Expected Outcomes</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {outcomes.map(o => (
-                  <div key={o} className="flex items-start gap-3 text-sm text-white/70">
-                    <span className="text-green-400 flex-shrink-0 font-bold mt-0.5">✓</span>
-                    {o}
+            <div className="mt-10 rounded-xl bg-inkwell p-8">
+              <p className="eyebrow mb-5 text-accent">Expected outcomes</p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {outcomes.map((o) => (
+                  <div key={o} className="flex items-start gap-3 text-sm text-on-dark-2">
+                    <span className="mt-0.5 flex-shrink-0 font-bold text-pos">✓</span>
+                    <span className="leading-relaxed">{o}</span>
                   </div>
                 ))}
               </div>
@@ -151,13 +144,17 @@ export default function ServicePageLayout({
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="bg-[#F8F7F4] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-surface py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B] mb-4">Related Services</p>
+            <p className="eyebrow mb-4 text-muted">Related services</p>
             <div className="flex flex-wrap gap-3">
-              {related.map(r => (
-                <Link key={r.href} href={r.href} className="px-4 py-2 rounded-full border border-[#E2E8F0] bg-white text-sm font-medium text-[#0A1628] hover:border-[#2563EB] hover:text-[#2563EB] transition-colors">
+              {related.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="rounded-full border border-line bg-bg px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+                >
                   {r.name} →
                 </Link>
               ))}
@@ -167,14 +164,15 @@ export default function ServicePageLayout({
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-[#0A1628] py-16 sm:py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <section className="bg-inkwell py-16 text-on-dark sm:py-20">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <ScrollReveal>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">{finalCtaTitle}</h2>
-            <p className="text-white/60 leading-relaxed mb-8">{finalCtaBody}</p>
-            <Link href="/contact" className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
-              Book a Free Consultation →
-            </Link>
+            <h2 className="mb-4 font-serif text-2xl font-medium tracking-tight text-on-dark sm:text-3xl">{finalCtaTitle}</h2>
+            <p className="mb-8 leading-relaxed text-on-dark-2">{finalCtaBody}</p>
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+              <PrimaryBtn href="/diagnostic">Book a Growth Diagnostic →</PrimaryBtn>
+              <GhostBtn href="/contact" onDark>Talk to Esad</GhostBtn>
+            </div>
           </ScrollReveal>
         </div>
       </section>

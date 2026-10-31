@@ -10,7 +10,7 @@ export default function SalesProcessPage() {
   return (
     <ServicePageLayout
       label="Sales Process Optimization"
-      title="Build a Sales Process Your Team Can Follow — and Your Business Can Measure."
+      title="Build a Sales Process Your Team Can Follow, and Your Business Can Measure."
       subtitle="A great sales team without a defined process is like a great driver without a road. ACEDTC helps you design the process, build the tools, and create the systems that make selling more consistent, more measurable, and more effective."
       ctaLabel="Book a Sales Consultation →"
       whoFor={[
@@ -21,10 +21,10 @@ export default function SalesProcessPage() {
         "Businesses where follow-up depends on individual memory rather than a structured system",
       ]}
       problems={[
-        { title: "Leads come in but don't always get followed up.", body: "Without a defined intake workflow and automated follow-up, leads fall through the cracks — especially over weekends, after hours, and during busy periods." },
+        { title: "Leads come in but don't always get followed up.", body: "Without a defined intake workflow and automated follow-up, leads fall through the cracks, especially over weekends, after hours, and during busy periods." },
         { title: "Our pipeline looks full but revenue doesn't match.", body: "A pipeline filled with stale opportunities is not a pipeline. It's a wishlist. We clean up the process so that pipeline stage actually means something." },
         { title: "Different salespeople do things completely differently.", body: "Inconsistent approach means inconsistent results. We build a standardized process that gives your team structure without removing their personality." },
-        { title: "We lose deals during the follow-up phase.", body: "Most sales are lost not because the prospect said no — but because no one followed up a third, fourth, or fifth time. We build the system that does." },
+        { title: "We lose deals during the follow-up phase.", body: "Most sales are lost not because the prospect said no, but because no one followed up a third, fourth, or fifth time. We build the system that does." },
       ]}
       whatWeDo="ACEDTC evaluates your current sales process from the moment a lead comes in to the moment a deal is won or lost. We look at how leads are captured, how they're assigned, how quickly they receive a response, how follow-up is structured, what tools the team is using, and what data is being tracked. From that evaluation, we design and implement a structured lead intake workflow, defined pipeline stages with clear exit criteria, a multi-touch follow-up cadence, qualification criteria and scoring, sales scripts and email templates, appointment booking systems, missed-lead recovery workflows, CRM pipeline configuration, and reporting to track conversion at each stage."
       included={[

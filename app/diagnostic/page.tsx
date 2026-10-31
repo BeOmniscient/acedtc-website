@@ -1,75 +1,99 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { SectionHead, PrimaryBtn } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Free Revenue Leakage Diagnostic | ACEDTC",
-  description: "Download ACEDTC's free Revenue Leakage Diagnostic — a practical scorecard that helps business owners identify where leads are being lost, follow-up is weak, and marketing ROI is unclear.",
+  description:
+    "Download ACEDTC's free Revenue Leakage Diagnostic, a practical scorecard that helps business owners identify where leads are being lost, follow-up is weak, and marketing ROI is unclear.",
 };
 
 const zones = [
-  { n: "01", name: "Lead Capture", body: "Is every inquiry — web, phone, walk-in, after-hours — making it into a centralized, trackable system?" },
+  { n: "01", name: "Lead Capture", body: "Is every inquiry, web, phone, walk-in, after-hours, making it into a centralized, trackable system?" },
   { n: "02", name: "Speed to Lead", body: "How fast is your business responding to new inquiries? A 5-minute delay cuts conversion rates significantly." },
   { n: "03", name: "Sales Follow-Up", body: "Does follow-up happen consistently, or does it depend on whoever remembered to make the call?" },
-  { n: "04", name: "CRM Hygiene", body: "Is your CRM being actively maintained — or is it a graveyard of stale contacts and empty pipeline stages?" },
+  { n: "04", name: "CRM Hygiene", body: "Is your CRM being actively maintained, or is it a graveyard of stale contacts and empty pipeline stages?" },
   { n: "05", name: "Marketing Attribution", body: "Can you connect a specific campaign to a closed sale? Or are investment decisions based on assumptions?" },
   { n: "06", name: "Customer Communication", body: "Are prospects and clients receiving timely, consistent communication throughout the relationship?" },
   { n: "07", name: "Reporting & Accountability", body: "Does leadership have real-time visibility into leads, pipeline, marketing performance, and team activity?" },
+];
+
+const ranges = [
+  { range: "0-70", label: "Significant Leakage", color: "var(--neg)", body: "Multiple critical gaps exist across your systems. Revenue is being lost at several points at once. The opportunities for improvement are large and implementable." },
+  { range: "71-115", label: "Moderate Leakage", color: "#D97706", body: "You have some systems in place but gaps remain. Your biggest opportunities are in automation, attribution, and reporting. Most gaps can be closed within 30 to 60 days." },
+  { range: "116-150", label: "Strong Foundation", color: "var(--accent)", body: "Solid systems in most areas. The opportunities are in the optimization layer: tightening attribution, refining follow-up, improving CRM hygiene, and better reporting." },
+  { range: "151-175", label: "High-Performing", color: "var(--pos)", body: "Your systems are strong across the board. The opportunity is in continuous optimization: improving conversion rates, refining targeting, and expanding what already works." },
+];
+
+const previewBars = [
+  { zone: "Lead Capture", pct: 65 },
+  { zone: "Speed to Lead", pct: 30 },
+  { zone: "Sales Follow-Up", pct: 45 },
+  { zone: "CRM Hygiene", pct: 20 },
+  { zone: "Marketing Attribution", pct: 35 },
+];
+
+const fieldClass = "block w-full rounded-lg px-3 py-2.5 text-sm text-ink bg-surface transition-colors";
+const labelClass = "mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink";
+
+const faqs = [
+  { q: "Is this actually free?", a: "Yes. No credit card. No trial. No catch. We want you to have it because it starts an honest conversation." },
+  { q: "What do I do with the results?", a: "Score yourself across 7 categories. Your total maps to a revenue leakage profile and specific next steps. You can implement them yourself or discuss them with our team." },
+  { q: "Will someone from ACEDTC contact me?", a: "We'll send you the diagnostic immediately. After that, you'll receive a short email sequence with more context on revenue leakage. If you'd like to discuss your results, you can book a growth diagnostic, which is also free." },
+  { q: "How long does it take to complete?", a: "Most business owners complete it in 20 to 30 minutes. It's designed to be honest and practical, not exhaustive." },
 ];
 
 export default function DiagnosticPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#0A1628] pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative overflow-hidden bg-bg pt-28 sm:pt-32 lg:pt-40">
+        <div className="ledger-rule pointer-events-none absolute inset-0 opacity-[0.5] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black_75%,transparent)]" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Free Resource</p>
-              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
-                Find Out Where Your Business Is Losing Revenue — Before You Spend Another Dollar on Marketing.
-              </h1>
-              <p className="text-white/60 text-xl leading-relaxed mb-8">
-                The Revenue Leakage Diagnostic is a free, 30-minute scorecard that helps business owners
-                identify exactly where leads are falling through the cracks, follow-up is inconsistent,
-                and marketing dollars are going untracked.
+              <p className="eyebrow mb-6 flex items-center gap-3 text-muted">
+                <span className="h-px w-8 bg-accent" />
+                Free resource
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#download" className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
-                  Download the Free Diagnostic →
-                </a>
+              <h1 className="font-serif text-[2.2rem] font-medium leading-[1.08] tracking-tight text-ink sm:text-4xl lg:text-5xl">
+                Find out where your business is losing revenue, before you spend another dollar on marketing.
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-2">
+                The Revenue Leakage Diagnostic is a free, 30-minute scorecard that shows exactly where leads fall
+                through the cracks, follow-up is inconsistent, and marketing dollars go untracked.
+              </p>
+              <div className="mt-8">
+                <PrimaryBtn href="#download">Download the Free Diagnostic →</PrimaryBtn>
               </div>
-              <p className="mt-3 text-white/40 text-xs">No credit card. No sales call required.</p>
+              <p className="mt-3 text-xs text-muted">No credit card. No sales call required.</p>
             </div>
 
             {/* Preview card */}
             <div className="hidden lg:block">
-              <div className="bg-white rounded-xl p-8 shadow-2xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-[#0A1628] flex items-center justify-center">
-                    <span className="text-white font-bold text-xs">A</span>
+              <div className="rounded-xl border border-line bg-surface p-8 shadow-xl shadow-black/5">
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-inkwell">
+                    <span className="text-xs font-bold text-on-dark">A</span>
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-[#0A1628]">Revenue Leakage Diagnostic</p>
-                    <p className="text-xs text-[#64748B]">ACEDTC · Free Scorecard</p>
+                    <p className="text-sm font-bold text-ink">Revenue Leakage Diagnostic</p>
+                    <p className="eyebrow text-muted">ACEDTC / Free scorecard</p>
                   </div>
                 </div>
-                <div className="space-y-3 mb-6">
-                  {["Lead Capture", "Speed to Lead", "Sales Follow-Up", "CRM Hygiene", "Marketing Attribution"].map((zone, i) => (
-                    <div key={zone} className="flex items-center gap-3">
-                      <div className="h-2 rounded-full bg-[#E2E8F0] flex-1">
-                        <div
-                          className="h-2 rounded-full bg-[#2563EB]"
-                          style={{ width: `${[65, 30, 45, 20, 35][i]}%` }}
-                        />
+                <div className="mb-6 space-y-3">
+                  {previewBars.map((b) => (
+                    <div key={b.zone} className="flex items-center gap-3">
+                      <div className="h-2 flex-1 rounded-full bg-surface-2">
+                        <div className="h-2 rounded-full bg-accent-solid" style={{ width: `${b.pct}%` }} />
                       </div>
-                      <span className="text-xs text-[#64748B] w-32">{zone}</span>
+                      <span className="w-32 text-xs text-ink-2">{b.zone}</span>
                     </div>
                   ))}
                 </div>
-                <div className="bg-red-50 border border-red-100 rounded-lg p-4">
-                  <p className="text-sm font-semibold text-red-700 mb-1">Score: 42 / 175</p>
-                  <p className="text-xs text-red-600">Moderate revenue leakage. Significant opportunities to recover.</p>
+                <div className="rounded-lg border border-neg/30 bg-neg-weak p-4">
+                  <p className="tabular mb-1 text-sm font-semibold text-neg">Score: 42 / 175</p>
+                  <p className="text-xs text-neg">Moderate revenue leakage. Significant opportunities to recover.</p>
                 </div>
               </div>
             </div>
@@ -78,37 +102,33 @@ export default function DiagnosticPage() {
       </section>
 
       {/* ZONES */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Inside the Diagnostic</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-4 max-w-2xl">
-              The 7 Revenue Leakage Zones
-            </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mb-16 leading-relaxed">
-              Every business we audit has gaps in at least some of these seven areas. Most have gaps in
-              all of them. The diagnostic helps you score yourself honestly — and see where to focus first.
-            </p>
+            <SectionHead
+              index="07"
+              kicker="Inside the diagnostic"
+              title="The seven revenue leakage zones."
+              lede="Every business we audit has gaps in at least some of these seven areas. Most have gaps in all of them. The diagnostic helps you score yourself honestly and see where to focus first."
+            />
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {zones.slice(0, 6).map((z, i) => (
-              <ScrollReveal key={z.n} delay={i * 60}>
-                <div className="card-lift bg-[#F8F7F4] rounded-xl p-6 h-full">
-                  <span className="text-xs font-mono text-[#2563EB] mb-2 block">{z.n}</span>
-                  <h3 className="text-base font-semibold text-[#0A1628] mb-2">{z.name}</h3>
-                  <p className="text-[#64748B] text-sm leading-relaxed">{z.body}</p>
+              <ScrollReveal key={z.n} delay={i * 50}>
+                <div className="card-seam h-full bg-surface p-6">
+                  <span className="tabular mb-2 block text-sm text-accent">{z.n}</span>
+                  <h3 className="mb-2 text-base font-semibold text-ink">{z.name}</h3>
+                  <p className="text-sm leading-relaxed text-ink-2">{z.body}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
-
           <ScrollReveal>
-            <div className="bg-[#0A1628] rounded-xl p-6 flex items-start gap-4">
-              <span className="text-xs font-mono text-[#2563EB] flex-shrink-0 mt-0.5">07</span>
+            <div className="mt-4 flex items-start gap-4 rounded-xl bg-inkwell p-6">
+              <span className="tabular mt-0.5 flex-shrink-0 text-sm text-accent">07</span>
               <div>
-                <h3 className="text-base font-semibold text-white mb-1">{zones[6].name}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{zones[6].body}</p>
+                <h3 className="mb-1 text-base font-semibold text-on-dark">{zones[6].name}</h3>
+                <p className="text-sm leading-relaxed text-on-dark-2">{zones[6].body}</p>
               </div>
             </div>
           </ScrollReveal>
@@ -116,31 +136,23 @@ export default function DiagnosticPage() {
       </section>
 
       {/* SCORE RANGES */}
-      <section className="bg-[#F8F7F4] py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-surface py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Score Interpretation</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-4 max-w-2xl">
-              What Your Score Means
-            </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mb-16 leading-relaxed">
-              The diagnostic produces a composite score out of 175 points. Each range maps to a clear
-              revenue leakage profile and set of recommended next steps.
-            </p>
+            <SectionHead
+              index="→"
+              kicker="Score interpretation"
+              title="What your score means."
+              lede="The diagnostic produces a composite score out of 175 points. Each range maps to a clear revenue leakage profile and set of recommended next steps."
+            />
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { range: "0 – 70", label: "Significant Leakage", color: "border-red-300 bg-red-50", textColor: "text-red-700", body: "Multiple critical gaps exist across your systems. Revenue is being lost at several points simultaneously. The opportunities for improvement are large and implementable." },
-              { range: "71 – 115", label: "Moderate Leakage", color: "border-amber-300 bg-amber-50", textColor: "text-amber-700", body: "You have some systems in place but gaps remain. Your biggest opportunities are in automation, attribution, and reporting. Most gaps can be closed within 30–60 days." },
-              { range: "116 – 150", label: "Strong Foundation", color: "border-blue-300 bg-blue-50", textColor: "text-blue-700", body: "Solid systems in most areas. The opportunities are in the optimization layer — tightening attribution, refining follow-up, improving CRM hygiene, and better reporting." },
-              { range: "151 – 175", label: "High-Performing", color: "border-green-300 bg-green-50", textColor: "text-green-700", body: "Your systems are strong across the board. The opportunity is in continuous optimization — improving conversion rates, refining targeting, and expanding what's already working." },
-            ].map((s, i) => (
-              <ScrollReveal key={s.range} delay={i * 80}>
-                <div className={`border-2 ${s.color} rounded-xl p-6 h-full`}>
-                  <p className={`text-2xl font-bold ${s.textColor} mb-1`}>{s.range}</p>
-                  <p className={`text-sm font-semibold ${s.textColor} mb-3`}>{s.label}</p>
-                  <p className="text-[#64748B] text-sm leading-relaxed">{s.body}</p>
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ranges.map((s, i) => (
+              <ScrollReveal key={s.range} delay={i * 70}>
+                <div className="h-full rounded-xl border border-line bg-bg p-6" style={{ borderTop: `2px solid ${s.color}` }}>
+                  <p className="tabular mb-1 text-2xl font-semibold" style={{ color: s.color }}>{s.range}</p>
+                  <p className="mb-3 text-sm font-semibold text-ink">{s.label}</p>
+                  <p className="text-sm leading-relaxed text-ink-2">{s.body}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -149,13 +161,13 @@ export default function DiagnosticPage() {
       </section>
 
       {/* WHO IT'S FOR */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Who This Is For</p>
-              <h2 className="text-3xl font-bold text-[#0A1628] tracking-tight mb-6">
-                This Diagnostic Was Designed For You If...
+              <p className="eyebrow mb-4 text-accent">Who this is for</p>
+              <h2 className="mb-6 font-serif text-3xl font-medium tracking-tight text-ink">
+                This diagnostic was designed for you if...
               </h2>
               <ul className="space-y-3">
                 {[
@@ -164,26 +176,32 @@ export default function DiagnosticPage() {
                   "You need to connect campaign performance to actual closed business",
                   "You're managing high lead volume with manual, inconsistent systems",
                   "You want a clear starting point before investing in new systems or campaigns",
-                ].map(item => (
-                  <li key={item} className="flex items-start gap-3 text-[#64748B] text-sm">
-                    <span className="text-[#2563EB] font-bold flex-shrink-0 mt-0.5">→</span>
-                    {item}
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-ink-2">
+                    <span className="mt-0.5 flex-shrink-0 text-accent">→</span>
+                    <span className="leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </ScrollReveal>
             <ScrollReveal delay={150}>
-              <div className="bg-[#F8F7F4] rounded-xl p-8">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-2">Time commitment</p>
-                <p className="text-4xl font-bold text-[#0A1628] mb-1">30 min</p>
-                <p className="text-[#64748B] text-sm mb-6">to complete the full diagnostic</p>
-
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-2">What you&apos;ll have</p>
-                <ul className="space-y-2 text-sm text-[#64748B]">
-                  <li className="flex gap-2"><span className="text-[#2563EB] font-bold">✓</span> A score across 7 revenue leakage categories</li>
-                  <li className="flex gap-2"><span className="text-[#2563EB] font-bold">✓</span> Clear identification of your highest-priority gaps</li>
-                  <li className="flex gap-2"><span className="text-[#2563EB] font-bold">✓</span> Specific next-step recommendations based on your score</li>
-                  <li className="flex gap-2"><span className="text-[#2563EB] font-bold">✓</span> A starting point for a real conversation with our team</li>
+              <div className="rounded-xl border border-line bg-surface p-8">
+                <p className="eyebrow mb-2 text-accent">Time commitment</p>
+                <p className="tabular mb-1 text-4xl font-semibold text-ink">30 min</p>
+                <p className="mb-6 text-sm text-ink-2">to complete the full diagnostic</p>
+                <p className="eyebrow mb-2 text-accent">What you&apos;ll have</p>
+                <ul className="space-y-2 text-sm text-ink-2">
+                  {[
+                    "A score across 7 revenue leakage categories",
+                    "Clear identification of your highest-priority gaps",
+                    "Specific next-step recommendations based on your score",
+                    "A starting point for a real conversation with our team",
+                  ].map((t) => (
+                    <li key={t} className="flex gap-2">
+                      <span className="font-bold text-accent">✓</span>
+                      <span className="leading-relaxed">{t}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </ScrollReveal>
@@ -192,59 +210,48 @@ export default function DiagnosticPage() {
       </section>
 
       {/* DOWNLOAD FORM */}
-      <section id="download" className="bg-[#0A1628] py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section id="download" className="bg-inkwell py-20 text-on-dark sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Download the Diagnostic</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-                Get the Free Revenue Leakage Diagnostic
+              <p className="eyebrow mb-4 text-accent">Download the diagnostic</p>
+              <h2 className="mb-4 font-serif text-3xl font-medium tracking-tight text-on-dark sm:text-4xl">
+                Get the free Revenue Leakage Diagnostic.
               </h2>
-              <p className="text-white/60 leading-relaxed mb-4">
-                Complete the form and we&apos;ll send the diagnostic to your inbox immediately.
+              <p className="mb-4 leading-relaxed text-on-dark-2">
+                Complete the form and we'll send the diagnostic to your inbox immediately.
               </p>
-              <div className="space-y-2 text-sm text-white/50">
+              <div className="space-y-2 text-sm text-on-dark-muted">
                 <p>✓ No credit card required</p>
-                <p>✓ No spam — just the diagnostic and a few helpful follow-up emails</p>
+                <p>✓ No spam, just the diagnostic and a few helpful follow-up emails</p>
                 <p>✓ Unsubscribe anytime</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
-              <div className="bg-white rounded-xl p-8">
+              <div className="rounded-xl bg-bg p-8">
                 <form className="space-y-4" action="/thank-you" method="GET">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">
-                        First Name <span className="text-red-500">*</span>
-                      </label>
-                      <input type="text" name="first_name" required className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]" placeholder="Jane" />
+                      <label className={labelClass}>First name <span className="text-neg">*</span></label>
+                      <input type="text" name="first_name" required className={fieldClass} placeholder="Jane" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">
-                        Last Name <span className="text-red-500">*</span>
-                      </label>
-                      <input type="text" name="last_name" required className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]" placeholder="Smith" />
+                      <label className={labelClass}>Last name <span className="text-neg">*</span></label>
+                      <input type="text" name="last_name" required className={fieldClass} placeholder="Smith" />
                     </div>
                   </div>
-
                   <div>
-                    <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">
-                      Business Email <span className="text-red-500">*</span>
-                    </label>
-                    <input type="email" name="email" required className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]" placeholder="jane@company.com" />
+                    <label className={labelClass}>Business email <span className="text-neg">*</span></label>
+                    <input type="email" name="email" required className={fieldClass} placeholder="jane@company.com" />
                   </div>
-
                   <div>
-                    <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">
-                      Company Name <span className="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="company" required className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]" placeholder="Acme Corp" />
+                    <label className={labelClass}>Company name <span className="text-neg">*</span></label>
+                    <input type="text" name="company" required className={fieldClass} placeholder="Acme Corp" />
                   </div>
-
                   <div>
-                    <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">Industry</label>
-                    <select name="industry" className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]">
+                    <label className={labelClass}>Industry</label>
+                    <select name="industry" className={fieldClass}>
                       <option value="">Select your industry</option>
                       <option>Automotive</option>
                       <option>B2B Services</option>
@@ -257,10 +264,9 @@ export default function DiagnosticPage() {
                       <option>Other</option>
                     </select>
                   </div>
-
                   <div>
-                    <label className="block text-xs font-semibold text-[#0A1628] uppercase tracking-wide mb-1.5">Biggest Challenge</label>
-                    <select name="challenge" className="block w-full px-3 py-2.5 rounded-lg border border-[#E2E8F0] text-sm text-[#0A1628] bg-[#F8F7F4]">
+                    <label className={labelClass}>Biggest challenge</label>
+                    <select name="challenge" className={fieldClass}>
                       <option value="">What are you most focused on?</option>
                       <option>Lead generation</option>
                       <option>Sales follow-up</option>
@@ -270,12 +276,10 @@ export default function DiagnosticPage() {
                       <option>All of the above</option>
                     </select>
                   </div>
-
-                  <button type="submit" className="w-full px-6 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
+                  <button type="submit" className="w-full rounded-md bg-accent-solid px-6 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-ink">
                     Send Me the Diagnostic →
                   </button>
-
-                  <p className="text-xs text-[#94a3b8] text-center">
+                  <p className="text-center text-xs text-muted">
                     We respect your information. No spam. No third-party sharing.
                   </p>
                 </form>
@@ -286,20 +290,15 @@ export default function DiagnosticPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <section className="bg-bg py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="text-2xl font-bold text-[#0A1628] mb-8">Quick Questions</h2>
+            <h2 className="mb-8 font-serif text-2xl font-medium text-ink">Quick questions</h2>
             <div className="space-y-6">
-              {[
-                { q: "Is this actually free?", a: "Yes. No credit card. No trial. No catch. We want you to have it because it starts an honest conversation." },
-                { q: "What do I do with the results?", a: "Score yourself across 7 categories. Your total score maps to a revenue leakage profile and specific recommended next steps. You can implement the recommendations yourself or discuss them with our team." },
-                { q: "Will someone from ACEDTC contact me?", a: "We'll send you the diagnostic immediately. After that, you'll receive a short email sequence with additional context on revenue leakage. If you'd like to discuss your results, you can book a Growth Systems Review — which is also free." },
-                { q: "How long does the diagnostic take to complete?", a: "Most business owners complete it in 20–30 minutes. It's designed to be honest and practical, not exhaustive." },
-              ].map(faq => (
-                <div key={faq.q} className="border-b border-[#E2E8F0] pb-6">
-                  <h3 className="text-sm font-semibold text-[#0A1628] mb-2">{faq.q}</h3>
-                  <p className="text-sm text-[#64748B] leading-relaxed">{faq.a}</p>
+              {faqs.map((faq) => (
+                <div key={faq.q} className="border-b border-line pb-6">
+                  <h3 className="mb-2 text-sm font-semibold text-ink">{faq.q}</h3>
+                  <p className="text-sm leading-relaxed text-ink-2">{faq.a}</p>
                 </div>
               ))}
             </div>

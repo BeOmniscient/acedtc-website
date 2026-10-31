@@ -1,77 +1,202 @@
 @import "tailwindcss";
 
-@theme {
-  --color-navy: #0A1628;
-  --color-navy-light: #0F1E38;
-  --color-off-white: #F8F7F4;
-  --color-steel: #2563EB;
-  --color-steel-dark: #1D4ED8;
-  --color-muted: #64748B;
-  --color-amber-accent: #D97706;
+/* ============================================================
+   ACEDTC: "Meridian Cobalt"
+   Source seam: the reconciled ledger line: the instant dozens
+   of noisy channels collapse into one trustworthy revenue number.
+   Light and dark are both designed. Dark is not an inversion.
+   ============================================================ */
+
+:root {
+  /* ground + surfaces */
+  --bg: #FBFCFE;
+  --surface: #F2F5FA;
+  --surface-2: #E9EEF6;
+  --inkwell: #0B1220;      /* darkest brand block, used as a surface in light mode */
+  /* text */
+  --ink: #0B1220;
+  --ink-2: #334155;
+  --muted: #5A6B84;
+  --on-dark: #EEF3FB;
+  --on-dark-2: #AEBCD0;
+  --on-dark-muted: #7E8CA3;
+  /* lines */
+  --line: #D7E0EE;
+  --line-strong: #C0CCDE;
+  --line-on-dark: #1E2A40;
+  --line-on-dark-strong: #2B3A54;
+  /* cobalt signal */
+  --accent: #2563EB;        /* links, labels on light */
+  --accent-solid: #1D4ED8;  /* solid button bg, white text passes AA */
+  --accent-ink: #1E40AF;
+  --accent-weak: #EAF1FE;
+  --on-accent: #FFFFFF;
+  /* signal states */
+  --pos: #047857;
+  --pos-weak: #E6F4EE;
+  --neg: #B42318;
+  --neg-weak: #FBEAE8;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0A0F1A;
+  --surface: #111A2B;
+  --surface-2: #16223A;
+  --inkwell: #060B15;
+  --ink: #EEF3FB;
+  --ink-2: #C3D0E4;
+  --muted: #90A0B8;
+  --on-dark: #EEF3FB;
+  --on-dark-2: #C3D0E4;
+  --on-dark-muted: #90A0B8;
+  --line: #1E2A40;
+  --line-strong: #2B3A54;
+  --line-on-dark: #22314B;
+  --line-on-dark-strong: #334565;
+  --accent: #74A9FB;        /* brighter cobalt for links on dark ground */
+  --accent-solid: #2563EB;  /* solid button bg on dark */
+  --accent-ink: #93C5FD;
+  --accent-weak: #13213B;
+  --on-accent: #FFFFFF;
+  --pos: #34D399;
+  --pos-weak: #0E2A22;
+  --neg: #F87171;
+  --neg-weak: #2A1414;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-inkwell: var(--inkwell);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-2: var(--on-dark-2);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-line-on-dark: var(--line-on-dark);
+  --color-line-on-dark-strong: var(--line-on-dark-strong);
+  --color-accent: var(--accent);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-weak: var(--accent-weak);
+  --color-on-accent: var(--on-accent);
+  --color-pos: var(--pos);
+  --color-pos-weak: var(--pos-weak);
+  --color-neg: var(--neg);
+  --color-neg-weak: var(--neg-weak);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+}
+
+* {
+  min-width: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
 body {
-  color: #0A1628;
-  background: #ffffff;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.hero-grid {
-  background-color: #0A1628;
-  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.14) 1px, transparent 1px);
-  background-size: 48px 48px;
+/* Ledger numerals: tabular + lined, for every data figure */
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
-.nav-dropdown {
-  animation: fadeDown 0.18s ease-out;
+/* Mono micro-label used as the section index */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-@keyframes fadeDown {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* The ledger-rule motif: fine vertical columns resolving right */
+.ledger-rule {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--line-on-dark) 0,
+    var(--line-on-dark) 1px,
+    transparent 1px,
+    transparent 72px
+  );
 }
 
+/* Entrance reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-.delay-1 { transition-delay: 0.08s; }
-.delay-2 { transition-delay: 0.16s; }
-.delay-3 { transition-delay: 0.24s; }
-.delay-4 { transition-delay: 0.32s; }
-.delay-5 { transition-delay: 0.40s; }
-.delay-6 { transition-delay: 0.48s; }
-.delay-7 { transition-delay: 0.56s; }
-
-.card-lift {
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-.card-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(10, 22, 40, 0.10);
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
 }
 
-.service-card-dark {
-  transition: background 0.22s ease, border-color 0.22s ease;
+.nav-dropdown {
+  animation: fadeDown 0.18s ease-out;
 }
-.service-card-dark:hover {
-  background: rgba(15, 30, 56, 0.9);
-  border-color: #2563EB;
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Card hover: a seam of cobalt draws up the left edge */
+.card-seam {
+  position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.card-seam::before {
+  content: "";
+  position: absolute;
+  left: -1px; top: -1px; bottom: -1px;
+  width: 2px;
+  background: var(--accent-solid);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-seam:hover::before { transform: scaleY(1); }
+.card-seam:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+}
+
+input, textarea, select {
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+input::placeholder, textarea::placeholder { color: var(--muted); }
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #2563EB !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--ink);
 }

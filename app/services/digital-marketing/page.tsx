@@ -3,7 +3,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Strategy & Media Planning | ACEDTC",
-  description: "ACEDTC helps businesses plan, optimize, and measure digital marketing campaigns — including paid search, paid social, local targeting, geofencing, retargeting, and landing page strategy.",
+  description: "ACEDTC helps businesses plan, optimize, and measure digital marketing campaigns, including paid search, paid social, local targeting, geofencing, retargeting, and landing page strategy.",
 };
 
 export default function DigitalMarketingPage() {
@@ -26,7 +26,7 @@ export default function DigitalMarketingPage() {
         { title: "We're getting leads but they're not the right kind.", body: "Quality matters more than quantity. We help you refine targeting, messaging, and offer strategy to attract leads more likely to convert." },
         { title: "We have no retargeting strategy.", body: "The majority of website visitors don't convert on their first visit. A strong retargeting strategy keeps your brand in front of the right people until they're ready. Most businesses don't have one." },
       ]}
-      whatWeDo="ACEDTC approaches digital marketing strategy from the perspective of the full customer journey — not just the top of the funnel. We evaluate your current media spend, audience targeting, creative strategy, landing page performance, lead capture systems, and post-click experience. From that evaluation, we build a media strategy that includes the right channels, the right targeting approach, the right offer structure, and the right measurement framework to connect spend to revenue. We work across paid search, paid social, programmatic advertising, display retargeting, geofencing, native advertising, connected TV, and landing page strategy."
+      whatWeDo="ACEDTC approaches digital marketing strategy from the perspective of the full customer journey, not just the top of the funnel. We evaluate your current media spend, audience targeting, creative strategy, landing page performance, lead capture systems, and post-click experience. From that evaluation, we build a media strategy that includes the right channels, the right targeting approach, the right offer structure, and the right measurement framework to connect spend to revenue. We work across paid search, paid social, programmatic advertising, display retargeting, geofencing, native advertising, connected TV, and landing page strategy."
       included={[
         "Current campaign audit and performance review",
         "Audience targeting strategy",
@@ -42,7 +42,7 @@ export default function DigitalMarketingPage() {
         "Monthly performance review structure",
       ]}
       useCases={[
-        { industry: "Healthcare Practice", body: "A wellness practice was running paid social campaigns with a reasonable budget but generating low-quality leads that rarely converted to booked appointments. ACEDTC evaluated their targeting, creative messaging, and landing page — identified that the offer was unclear and the landing page had no appointment booking capability — and rebuilt the campaign funnel. New leads entered directly into the CRM with automated appointment booking. Lead quality improved and cost per booked appointment dropped significantly." },
+        { industry: "Healthcare Practice", body: "A wellness practice was running paid social campaigns with a reasonable budget but generating low-quality leads that rarely converted to booked appointments. ACEDTC evaluated their targeting, creative messaging, and landing page, identified that the offer was unclear and the landing page had no appointment booking capability, and rebuilt the campaign funnel. New leads entered directly into the CRM with automated appointment booking. Lead quality improved and cost per booked appointment dropped significantly." },
         { industry: "Local Service Business", body: "A local service business needed to dominate their geographic area without wasting budget on impressions outside their service radius. ACEDTC designed a geofencing and local paid search strategy combined with retargeting sequences for website visitors and a landing page built specifically for their primary service offer. The result was a tighter geographic campaign with better cost efficiency and trackable attribution." },
       ]}
       outcomes={[

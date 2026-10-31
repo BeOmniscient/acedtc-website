@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { PageHero, SectionHead, FinalCTA } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "About ACEDTC | Esad Kajosevic — Executive Consulting & Implementation",
-  description: "ACEDTC is led by Esad Kajosevic, a 30-year executive advisor with experience at Kia America, Hyundai, Prime Healthcare, and across B2B, automotive, healthcare, and construction sectors.",
+  title: "About ACEDTC | Esad Kajosevic, Executive Consulting & Implementation",
+  description:
+    "ACEDTC is led by Esad Kajosevic, a 30-year executive advisor with experience at Kia America, Hyundai, Prime Healthcare, and across B2B, automotive, healthcare, and construction.",
 };
 
 const expertise = [
   {
     title: "Executive Coaching & Leadership Development",
-    body: "One-on-one coaching for executives, senior leaders, and high-potential managers focused on performance, accountability, and decision-making. The goal is not insight alone — it is behavioral change that produces measurable business outcomes.",
+    body: "One-on-one coaching for executives, senior leaders, and high-potential managers focused on performance, accountability, and decision-making. The goal is not insight alone. It is behavioral change that produces measurable business outcomes.",
     points: ["Leadership clarity and communication", "Performance accountability systems", "Decision-making under pressure", "Building high-performing, aligned teams", "Navigating organizational complexity"],
   },
   {
@@ -25,22 +27,22 @@ const expertise = [
   },
   {
     title: "Marketing Strategy & Brand Positioning",
-    body: "Marketing built around the business objective — not the channel. With experience across automotive, healthcare, and consulting, Esad develops targeted strategies that align marketing investment to revenue outcomes.",
+    body: "Marketing built around the business objective, not the channel. With experience across automotive, healthcare, and consulting, Esad develops targeted strategies that align marketing investment to revenue outcomes.",
     points: ["Digital marketing strategy including geo-fencing and CRM integration", "Brand positioning and message development", "Customer journey optimization", "Sales enablement and marketing alignment", "Event strategy and industry engagement"],
   },
   {
     title: "Operational Efficiency & Financial Performance",
     body: "A CFO-minded lens applied to operational improvement. Esad helps organizations optimize profitability, improve cash flow management, and build the measurement infrastructure that makes performance transparent at every level.",
-    points: ["KPI development and executive dashboard design", "P&L analysis — cash vs. accrual, rolling 12-month", "Billing, collections, and cash flow optimization", "Margin improvement strategies", "Process improvement and scalability planning"],
+    points: ["KPI development and executive dashboard design", "P&L analysis across cash, accrual, and rolling 12-month views", "Billing, collections, and cash flow optimization", "Margin improvement strategies", "Process improvement and scalability planning"],
   },
 ];
 
 const industries = [
   {
     name: "Automotive & OEM / Dealer Operations",
-    clients: "Several Automotive Dealership Groups, OEM and Third Party Administrators",
-    body: "Deep experience across the automotive ecosystem — district-level performance management, F&I strategy, dealer profitability improvement, and sales process optimization at scale.",
-    forClients: "ACEDTC speaks the language of automotive operations natively — from gross profit per unit to lead response protocols to multi-rooftop performance management.",
+    clients: "Several automotive dealership groups, OEMs, and third-party administrators",
+    body: "Deep experience across the automotive ecosystem: district-level performance management, F&I strategy, dealer profitability improvement, and sales process optimization at scale.",
+    forClients: "ACEDTC speaks the language of automotive operations natively, from gross profit per unit to lead response protocols to multi-rooftop performance management.",
   },
   {
     name: "Construction & Infrastructure",
@@ -50,15 +52,15 @@ const industries = [
   },
   {
     name: "Healthcare & Health Technology",
-    clients: "Prime Healthcare · Medical Database",
-    body: "Supporting organizations at the intersection of healthcare operations and business strategy — digital transformation, go-to-market execution, and internal systems that support growth at scale.",
-    forClients: "Growth in healthcare requires strategic clarity and operational discipline. ACEDTC brings both, with understanding of the sector's communication and patient journey dynamics.",
+    clients: "Prime Healthcare, Medical Database",
+    body: "Supporting organizations at the intersection of healthcare operations and business strategy: digital transformation, go-to-market execution, and internal systems that support growth at scale.",
+    forClients: "Growth in healthcare requires strategic clarity and operational discipline. ACEDTC brings both, with an understanding of the sector's communication and patient journey dynamics.",
   },
   {
     name: "Technology & Growth-Stage Companies",
     clients: "Emerging technology companies",
     body: "Working with emerging technology companies on product positioning, growth strategy, and the operational infrastructure needed to scale without breaking.",
-    forClients: "ACEDTC brings enterprise-level execution thinking to growth-stage environments — helping organizations build the structure they need without bureaucracy they don't.",
+    forClients: "ACEDTC brings enterprise-level execution thinking to growth-stage environments, helping organizations build the structure they need without the bureaucracy they don't.",
   },
   {
     name: "B2B Professional Services",
@@ -68,48 +70,41 @@ const industries = [
   },
 ];
 
+const principles = [
+  { n: "01", title: "Clear accountability at every level", body: "Every growth initiative needs an owner. Every milestone needs a deadline. Every result needs to be measured. Without explicit accountability, good plans become forgotten intentions." },
+  { n: "02", title: "Data-driven decision making", body: "Business decisions made without data are guesses. Better guesses than random chance, perhaps, but still guesses. Esad builds the measurement infrastructure that turns gut feeling into informed judgment." },
+  { n: "03", title: "Consistent communication rhythms", body: "Leadership cadence, weekly, quarterly, and annual, is the mechanism by which strategy stays alive inside an organization. Esad helps clients build rhythms that keep priorities visible and execution consistent." },
+  { n: "04", title: "The right structure enables performance", body: "People perform better when they have clear roles, clear goals, the right tools, and a system that supports their work. Building that structure is one of the highest-leverage investments any organization can make." },
+];
+
 export default function AboutPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="bg-[#0A1628] pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">About ACEDTC</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
-              Built by an Operator. Designed for Execution.
-            </h1>
-            <p className="text-white/60 text-xl leading-relaxed">
-              ACEDTC exists because most consulting relationships stop where the real work begins. We
-              don&apos;t just diagnose the problem. We build what&apos;s needed to fix it — and we stay
-              accountable to the results.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About ACEDTC"
+        title="Built by an operator. Designed for execution."
+        lede="ACEDTC exists because most consulting relationships stop where the real work begins. We don't just diagnose the problem. We build what's needed to fix it, and we stay accountable to the results."
+      />
 
       {/* FOUNDER */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-            {/* Bio text */}
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5 lg:gap-16">
             <div className="lg:col-span-3">
               <ScrollReveal>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">The Founder</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-2">
-                  Esad Kajosevic
-                </h2>
-                <p className="text-[#64748B] font-medium mb-6">Executive Advisor · Operator · Coach</p>
+                <p className="eyebrow mb-4 text-accent">The founder</p>
+                <h2 className="mb-2 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">Esad Kajosevic</h2>
+                <p className="mb-6 font-medium text-muted">Executive Advisor / Operator / Coach</p>
 
-                <blockquote className="border-l-3 border-[#2563EB] pl-5 mb-8">
-                  <p className="text-[#0A1628] text-xl font-semibold italic">
-                    &ldquo;Execution drives strategy — not the other way around.&rdquo;
+                <blockquote className="mb-8 border-l-2 border-accent pl-5">
+                  <p className="font-serif text-xl italic text-ink">
+                    &ldquo;Execution drives strategy, not the other way around.&rdquo;
                   </p>
                 </blockquote>
 
-                <div className="space-y-5 text-[#64748B] leading-relaxed">
+                <div className="space-y-5 leading-relaxed text-ink-2">
                   <p>
-                    Esad Kajosevic has spent more than 30 years in the space between strategy and result — working with
+                    Esad Kajosevic has spent more than 30 years in the space between strategy and result, working with
                     enterprise organizations, regional businesses, and individual leaders who needed more than a plan.
                     They needed someone who could help them build, implement, and sustain the systems that make
                     performance repeatable.
@@ -118,48 +113,47 @@ export default function AboutPage() {
                     His career spans automotive OEM operations, healthcare business development, construction and
                     infrastructure consulting, and B2B professional services. He has worked with organizations ranging
                     from Fortune-level OEMs to growth-stage businesses navigating their first structured scaling effort.
-                    In every context, the work has been the same: identify what&apos;s actually driving the problem, build
+                    In every context, the work has been the same: identify what is actually driving the problem, build
                     the system that addresses it, and hold the process accountable until the outcome is real.
                   </p>
                   <p>
-                    Esad holds an MBA in Digital Transformation from the University of California, Irvine — Paul Merage
+                    Esad holds an MBA in Digital Transformation from the University of California, Irvine, Paul Merage
                     School of Business. His academic foundation in data-driven leadership, digital strategy, and
                     organizational behavior complements the frontline execution experience he brings to every engagement.
                   </p>
                   <p>
-                    He is known not as a consultant who hands you a deck and departs — but as an advisor who stays in
+                    He is known not as a consultant who hands you a deck and departs, but as an advisor who stays in
                     the work.
                   </p>
                 </div>
               </ScrollReveal>
             </div>
 
-            {/* Credentials card */}
             <div className="lg:col-span-2">
               <ScrollReveal delay={150}>
-                <div className="bg-[#F8F7F4] rounded-xl p-8 sticky top-24">
+                <div className="sticky top-24 rounded-xl border border-line bg-surface p-8">
                   <div className="space-y-6">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-2">Experience</p>
-                      <p className="text-3xl font-bold text-[#0A1628]">30+ Years</p>
-                      <p className="text-[#64748B] text-sm">Executive leadership, consulting, and coaching</p>
+                      <p className="eyebrow mb-2 text-accent">Experience</p>
+                      <p className="tabular text-3xl font-semibold text-ink">30+ Years</p>
+                      <p className="text-sm text-ink-2">Executive leadership, consulting, and coaching</p>
                     </div>
-                    <div className="border-t border-[#E2E8F0] pt-6">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-2">Education</p>
-                      <p className="text-base font-semibold text-[#0A1628]">MBA — Digital Transformation</p>
-                      <p className="text-[#64748B] text-sm">UC Irvine, Paul Merage School of Business</p>
+                    <div className="border-t border-line pt-6">
+                      <p className="eyebrow mb-2 text-accent">Education</p>
+                      <p className="text-base font-semibold text-ink">MBA, Digital Transformation</p>
+                      <p className="text-sm text-ink-2">UC Irvine, Paul Merage School of Business</p>
                     </div>
-                    <div className="border-t border-[#E2E8F0] pt-6">
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Named Client Experience</p>
+                    <div className="border-t border-line pt-6">
+                      <p className="eyebrow mb-3 text-accent">Named client experience</p>
                       <div className="space-y-1.5">
-                        {["Kia America", "Hyundai Motor Company", "JM&A Group", "Prime Healthcare", "Morgner Construction Management"].map(c => (
-                          <p key={c} className="text-sm font-medium text-[#0A1628]">{c}</p>
+                        {["Kia America", "Hyundai Motor Company", "JM&A Group", "Prime Healthcare", "Morgner Construction Management"].map((c) => (
+                          <p key={c} className="text-sm font-medium text-ink">{c}</p>
                         ))}
                       </div>
                     </div>
-                    <div className="border-t border-[#E2E8F0] pt-6">
-                      <Link href="/contact" className="block w-full text-center px-4 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
-                        Book a Consultation with Esad →
+                    <div className="border-t border-line pt-6">
+                      <Link href="/diagnostic" className="block w-full rounded-md bg-accent-solid px-4 py-3 text-center text-sm font-semibold text-on-accent transition-colors hover:bg-accent-ink">
+                        Book a Growth Diagnostic →
                       </Link>
                     </div>
                   </div>
@@ -171,33 +165,32 @@ export default function AboutPage() {
       </section>
 
       {/* EXPERTISE */}
-      <section className="bg-[#F8F7F4] py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-surface py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Core Expertise</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-4 max-w-2xl">
-              The Disciplines Behind Every ACEDTC Engagement
-            </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mb-16 leading-relaxed">
-              Esad&apos;s background spans six major disciplines. Most engagements require more than one.
-            </p>
+            <SectionHead
+              index="05"
+              kicker="Core expertise"
+              title="The disciplines behind every engagement."
+              lede="Esad's background spans five major disciplines. Most engagements require more than one."
+            />
           </ScrollReveal>
-          <div className="space-y-6">
+          <div className="mt-12 space-y-4">
             {expertise.map((e, i) => (
-              <ScrollReveal key={e.title} delay={i * 60}>
-                <div className="bg-white rounded-xl p-8 border border-[#E2E8F0]">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <ScrollReveal key={e.title} delay={i * 50}>
+                <div className="rounded-xl border border-line bg-bg p-7 sm:p-8">
+                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     <div className="lg:col-span-2">
-                      <h3 className="text-lg font-semibold text-[#0A1628] mb-3">{e.title}</h3>
-                      <p className="text-[#64748B] text-sm leading-relaxed">{e.body}</p>
+                      <h3 className="mb-3 text-lg font-semibold text-ink">{e.title}</h3>
+                      <p className="text-sm leading-relaxed text-ink-2">{e.body}</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Focus Areas</p>
+                      <p className="eyebrow mb-3 text-muted">Focus areas</p>
                       <ul className="space-y-1.5">
-                        {e.points.map(pt => (
-                          <li key={pt} className="flex items-start gap-2 text-sm text-[#64748B]">
-                            <span className="text-[#2563EB] mt-0.5 flex-shrink-0">→</span>
-                            {pt}
+                        {e.points.map((pt) => (
+                          <li key={pt} className="flex items-start gap-2 text-sm text-ink-2">
+                            <span className="mt-0.5 flex-shrink-0 text-accent">→</span>
+                            <span className="leading-relaxed">{pt}</span>
                           </li>
                         ))}
                       </ul>
@@ -211,32 +204,29 @@ export default function AboutPage() {
       </section>
 
       {/* INDUSTRIES */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-3">Industry Experience</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-4 max-w-2xl">
-              Cross-Industry Experience That Transfers
-            </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mb-16 leading-relaxed">
-              The best growth ideas in your industry often come from the playbook of a completely different one.
-            </p>
+            <SectionHead
+              index="→"
+              kicker="Industry experience"
+              title="Cross-industry experience that transfers."
+              lede="The best growth ideas in your industry often come from the playbook of a completely different one."
+            />
           </ScrollReveal>
-          <div className="space-y-6">
+          <div className="mt-12 space-y-4">
             {industries.map((ind, i) => (
-              <ScrollReveal key={ind.name} delay={i * 60}>
-                <div className="border border-[#E2E8F0] rounded-xl p-8 hover:border-[#2563EB] transition-colors">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <ScrollReveal key={ind.name} delay={i * 50}>
+                <div className="card-seam rounded-xl border border-line bg-surface p-7 sm:p-8">
+                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                     <div>
-                      <h3 className="text-base font-semibold text-[#0A1628] mb-1">{ind.name}</h3>
-                      <p className="text-xs text-[#2563EB] font-medium">{ind.clients}</p>
+                      <h3 className="mb-1 text-base font-semibold text-ink">{ind.name}</h3>
+                      <p className="text-xs font-medium text-accent">{ind.clients}</p>
                     </div>
+                    <p className="text-sm leading-relaxed text-ink-2">{ind.body}</p>
                     <div>
-                      <p className="text-[#64748B] text-sm leading-relaxed">{ind.body}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B] mb-2">What this means for you</p>
-                      <p className="text-sm text-[#0A1628] leading-relaxed">{ind.forClients}</p>
+                      <p className="eyebrow mb-2 text-muted">What this means for you</p>
+                      <p className="text-sm leading-relaxed text-ink">{ind.forClients}</p>
                     </div>
                   </div>
                 </div>
@@ -247,45 +237,40 @@ export default function AboutPage() {
       </section>
 
       {/* PHILOSOPHY */}
-      <section className="bg-[#0A1628] py-20 sm:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section className="bg-inkwell py-20 text-on-dark sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-4">Leadership Philosophy</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
-                How Esad Approaches Every Engagement
+              <p className="eyebrow mb-4 text-accent">Leadership philosophy</p>
+              <h2 className="mb-6 font-serif text-3xl font-medium tracking-tight text-on-dark sm:text-4xl">
+                How Esad approaches every engagement.
               </h2>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
-                <p className="text-white text-2xl font-bold italic">
-                  &ldquo;Execution drives strategy — not the other way around.&rdquo;
+              <div className="mb-8 rounded-xl border border-line-on-dark bg-surface/40 p-6">
+                <p className="font-serif text-2xl italic text-on-dark">
+                  &ldquo;Execution drives strategy, not the other way around.&rdquo;
                 </p>
               </div>
-              <p className="text-white/60 leading-relaxed text-base">
-                This is not a rhetorical position. It&apos;s a perspective earned over 30 years of watching
-                well-designed strategies fail because no one built the system that was supposed to make them work.
+              <p className="leading-relaxed text-on-dark-2">
+                This is not a rhetorical position. It is a perspective earned over 30 years of watching well-designed
+                strategies fail because no one built the system that was supposed to make them work.
               </p>
-              <p className="text-white/60 leading-relaxed text-base mt-4">
-                Most consulting engagements end with a deliverable — a strategy document, a roadmap, a set of
-                recommendations. These are not outcomes. They are the beginning of the work. Outcomes happen
-                when the system gets built, the team gets aligned, and the measurements confirm the change is real.
+              <p className="mt-4 leading-relaxed text-on-dark-2">
+                Most consulting engagements end with a deliverable: a strategy document, a roadmap, a set of
+                recommendations. These are not outcomes. They are the beginning of the work. Outcomes happen when the
+                system gets built, the team gets aligned, and the measurements confirm the change is real.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={150}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#2563EB] mb-6">Four Principles</p>
+              <p className="eyebrow mb-6 text-accent">Four principles</p>
               <div className="space-y-4">
-                {[
-                  { n: "01", title: "Clear accountability at every level", body: "Every growth initiative needs an owner. Every milestone needs a deadline. Every result needs to be measured. Without explicit accountability, good plans become forgotten intentions." },
-                  { n: "02", title: "Data-driven decision making", body: "Business decisions made without data are guesses. Better guesses than random chance, perhaps — but still guesses. Esad builds the measurement infrastructure that turns gut feeling into informed judgment." },
-                  { n: "03", title: "Consistent communication rhythms", body: "Leadership cadence — weekly, quarterly, annual — is the mechanism by which strategy stays alive inside an organization. Esad helps clients build rhythms that keep priorities visible and execution consistent." },
-                  { n: "04", title: "The right structure enables performance", body: "People perform better when they have clear roles, clear goals, the right tools, and a system that supports their work. Building that structure is one of the highest-leverage investments any organization can make." },
-                ].map(p => (
-                  <div key={p.n} className="bg-white/5 border border-white/10 rounded-xl p-5">
+                {principles.map((p) => (
+                  <div key={p.n} className="rounded-xl border border-line-on-dark bg-surface/40 p-5">
                     <div className="flex gap-4">
-                      <span className="text-xs font-mono text-[#2563EB] flex-shrink-0 mt-0.5">{p.n}</span>
+                      <span className="tabular mt-0.5 flex-shrink-0 text-sm text-accent">{p.n}</span>
                       <div>
-                        <h3 className="text-sm font-semibold text-white mb-1">{p.title}</h3>
-                        <p className="text-white/50 text-sm leading-relaxed">{p.body}</p>
+                        <h3 className="mb-1 text-sm font-semibold text-on-dark">{p.title}</h3>
+                        <p className="text-sm leading-relaxed text-on-dark-2">{p.body}</p>
                       </div>
                     </div>
                   </div>
@@ -296,28 +281,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] tracking-tight mb-4">
-              Ready to Work With Someone Who&apos;s Done This Before?
-            </h2>
-            <p className="text-[#64748B] text-lg leading-relaxed mb-8">
-              Book a Growth Consultation. In 45 minutes, Esad will review your current situation, identify your
-              biggest growth opportunities, and give you a clear starting point — at no cost and no obligation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors">
-                Book a Consultation with Esad →
-              </Link>
-              <Link href="/diagnostic" className="inline-flex items-center px-6 py-3 rounded-md text-sm font-semibold border border-[#2563EB] text-[#2563EB] hover:bg-[#EFF6FF] transition-colors">
-                Download the Revenue Leakage Diagnostic
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <FinalCTA
+        title="Ready to work with someone who has done this before?"
+        body="Book a growth diagnostic. Esad will review your current situation, identify your biggest opportunities, and give you a clear starting point, at no cost and no obligation."
+      />
     </>
   );
 }
