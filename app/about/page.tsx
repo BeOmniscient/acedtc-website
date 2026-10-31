@@ -92,9 +92,21 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-5 lg:gap-16">
             <div className="lg:col-span-3">
               <ScrollReveal>
-                <p className="eyebrow mb-4 text-accent">The founder</p>
-                <h2 className="mb-2 font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">Esad Kajosevic</h2>
-                <p className="mb-6 font-medium text-muted">Executive Advisor / Operator / Coach</p>
+                <div className="mb-6 flex items-center gap-5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/esad.jpeg"
+                    alt="Esad Kajosevic, founder of ACEDTC"
+                    width={112}
+                    height={112}
+                    className="h-24 w-24 flex-shrink-0 rounded-xl object-cover ring-1 ring-line sm:h-28 sm:w-28"
+                  />
+                  <div>
+                    <p className="eyebrow mb-2 text-accent">The founder</p>
+                    <h2 className="font-serif text-3xl font-medium tracking-tight text-ink sm:text-4xl">Esad Kajosevic</h2>
+                    <p className="mt-1 font-medium text-muted">Executive Advisor / Operator / Coach</p>
+                  </div>
+                </div>
 
                 <blockquote className="mb-8 border-l-2 border-accent pl-5">
                   <p className="font-serif text-xl italic text-ink">
