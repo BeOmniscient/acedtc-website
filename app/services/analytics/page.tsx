@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function AnalyticsPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-analytics.png"
       label="Data, Analytics & Attribution"
       title="Stop Making Important Decisions With Incomplete Data."
       subtitle="Your business is generating data every day, from your website, your campaigns, your CRM, and your sales team. The problem is that most of it is siloed, incomplete, or being read the wrong way. ACEDTC connects those data sources into a clear, accurate picture of what is actually driving your revenue."

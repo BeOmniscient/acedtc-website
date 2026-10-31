@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function BusinessGrowthPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-business-growth.png"
       label="Business Growth Strategy"
       title="A Growth Strategy Your Business Can Actually Execute."
       subtitle="Most businesses don't fail because they lack ambition. They stall because strategy never gets translated into a clear plan, clear ownership, and a system for measuring progress. ACEDTC changes that."

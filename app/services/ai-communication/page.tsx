@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function AICommunicationPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-ai-communication.png"
       label="AI-Assisted Communication"
       title="Every Lead Deserves a Fast, Consistent, Intelligent Response."
       subtitle="A lead that waits more than five minutes is significantly less likely to convert. Most businesses are responding in hours, or not at all. ACEDTC implements modern response systems that make sure every lead gets answered, qualified, and followed up with, at the speed and consistency that modern buyers expect."

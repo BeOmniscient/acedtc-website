@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function CRMAutomationPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-crm-automation.png"
       label="CRM & Automation"
       title="Your CRM Should Drive Revenue. Not Collect Dust."
       subtitle="Most businesses have a CRM. Far fewer businesses actually use it the way it was designed to be used. ACEDTC configures, organizes, and automates your CRM so it becomes the engine behind your sales and client management, not another tool your team ignores."

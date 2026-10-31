@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function DigitalMarketingPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-digital-marketing.png"
       label="Digital Marketing & Media Strategy"
       title="Marketing That's Built Around Revenue, Not Impressions."
       subtitle="Running ads is easy. Running ads that produce measurable, attributable revenue is the work. ACEDTC helps businesses build a media strategy connected to their sales process, their CRM, and their bottom line."

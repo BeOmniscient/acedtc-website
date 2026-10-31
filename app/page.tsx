@@ -210,6 +210,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEAM BAND */}
+      <section className="relative isolate overflow-hidden bg-inkwell">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/hero-signal.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-inkwell via-inkwell/50 to-transparent" />
+        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <p className="eyebrow mb-4 text-accent">The reconciled line</p>
+          <h2 className="max-w-xl font-serif text-3xl font-medium leading-tight tracking-tight text-on-dark sm:text-4xl">
+            Dozens of noisy channels. One number you can trust.
+          </h2>
+          <p className="mt-4 max-w-lg leading-relaxed text-on-dark-2">
+            Every signal your business generates, resolved into a single clear line of sight on what actually drives revenue.
+          </p>
+        </div>
+      </section>
+
       {/* PROBLEM */}
       <section className="bg-bg py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -259,6 +275,34 @@ export default function HomePage() {
                   <h3 className="mb-3 text-lg font-semibold text-ink">{a.title}</h3>
                   <p className="text-sm leading-relaxed text-ink-2">{a.body}</p>
                 </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DATA FIGURES */}
+      <section className="bg-bg py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHead
+              index="→"
+              kicker="How we picture it"
+              title="Attribution in, funnel down, revenue out."
+              lede="Illustrative views of the systems we build. Your real numbers replace these the moment the tracking goes live."
+            />
+          </ScrollReveal>
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {[
+              { src: "/data-attribution.png", cap: "Every channel traced and merged into one revenue node." },
+              { src: "/data-funnel.png", cap: "Each stage of the funnel, measured end to end." },
+            ].map((f) => (
+              <ScrollReveal key={f.src}>
+                <figure className="overflow-hidden rounded-xl border border-line bg-inkwell">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={f.src} alt="" aria-hidden="true" className="aspect-video w-full object-cover" />
+                  <figcaption className="border-t border-line-on-dark px-5 py-4 text-sm text-on-dark-2">{f.cap}</figcaption>
+                </figure>
               </ScrollReveal>
             ))}
           </div>

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default function SalesProcessPage() {
   return (
     <ServicePageLayout
+      heroImage="/svc-sales-process.png"
       label="Sales Process Optimization"
       title="Build a Sales Process Your Team Can Follow, and Your Business Can Measure."
       subtitle="A great sales team without a defined process is like a great driver without a road. ACEDTC helps you design the process, build the tools, and create the systems that make selling more consistent, more measurable, and more effective."

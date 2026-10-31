@@ -8,21 +8,30 @@ export const metadata: Metadata = {
     "ACEDTC brings cross-industry experience across automotive, healthcare, construction, B2B services, and technology, with named client experience at Kia America, Hyundai, Prime Healthcare, and Morgner Construction.",
 };
 
-const industries = [
+const industries: {
+  name: string;
+  clients: string;
+  body: string;
+  challenges: string[];
+  image?: string;
+}[] = [
   {
     name: "Automotive & OEM / Dealer Operations",
+    image: "/industry-automotive.png",
     clients: "Several automotive dealership groups, OEMs, and third-party administrators",
     body: "Deep experience across the automotive ecosystem: at the OEM level, the district level, and the individual dealership level. We understand how dealer groups manage performance, how F&I functions within the sales process, how CRM is used and underused in automotive retail, and how digital marketing connects, or fails to connect, to showroom traffic and closed units.",
     challenges: ["Lead response time and digital lead management", "CRM adoption and pipeline discipline across multiple rooftops", "F&I performance and sales process consistency", "Marketing attribution, connecting ad spend to sold units", "District and regional performance reporting"],
   },
   {
     name: "Healthcare & Health Technology",
+    image: "/industry-healthcare.png",
     clients: "Prime Healthcare, Medical Database",
     body: "Healthcare organizations face a unique combination of growth complexity: regulated communication requirements, patient journey dynamics that differ from traditional B2B sales, and the operational challenge of scaling clinical capacity alongside administrative performance. ACEDTC brings digital transformation strategy, business development planning, and operational improvement to healthcare organizations at multiple growth stages.",
     challenges: ["Patient acquisition and intake optimization", "Digital marketing in a compliance-aware environment", "CRM and communication system implementation", "Operational efficiency and scheduling performance", "Go-to-market strategy for new service lines or locations"],
   },
   {
     name: "Construction & Infrastructure",
+    image: "/industry-construction.png",
     clients: "Morgner Construction Management",
     body: "Construction businesses operate in a business development environment defined by long sales cycles, relationship-driven pipelines, project-based revenue, and the constant challenge of maintaining margin as labor and material costs fluctuate. ACEDTC advises construction and infrastructure firms on growth strategy, business development structure, operational efficiency, and financial performance systems.",
     challenges: ["Business development pipeline structure and CRM", "Proposal and bid process efficiency", "Revenue forecasting and backlog management", "Operational margin improvement", "Leadership development and accountability systems"],
@@ -67,8 +76,14 @@ export default function IndustriesPage() {
           <div className="mt-12 space-y-4">
             {industries.map((ind, i) => (
               <ScrollReveal key={ind.name} delay={i * 50}>
-                <div className="card-seam rounded-xl border border-line bg-surface p-7 sm:p-8">
-                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div className="card-seam overflow-hidden rounded-xl border border-line bg-surface">
+                  {ind.image && (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={ind.image} alt="" aria-hidden="true" className="aspect-[21/9] w-full border-b border-line object-cover" />
+                    </>
+                  )}
+                  <div className="grid grid-cols-1 gap-8 p-7 sm:p-8 lg:grid-cols-3">
                     <div className="lg:col-span-2">
                       <h2 className="mb-1 text-xl font-semibold text-ink">{ind.name}</h2>
                       <p className="mb-4 text-xs font-semibold text-accent">{ind.clients}</p>

@@ -6,6 +6,7 @@ interface ServicePageProps {
   label: string;
   title: string;
   subtitle: string;
+  heroImage?: string;
   ctaHref?: string;
   ctaLabel?: string;
   whoFor: string[];
@@ -23,6 +24,7 @@ export default function ServicePageLayout({
   label,
   title,
   subtitle,
+  heroImage,
   ctaHref = "/diagnostic",
   ctaLabel = "Book a Growth Diagnostic →",
   whoFor,
@@ -53,6 +55,12 @@ export default function ServicePageLayout({
             <PrimaryBtn href={ctaHref}>{ctaLabel}</PrimaryBtn>
             <GhostBtn href="/contact">Talk to Esad</GhostBtn>
           </div>
+          {heroImage && (
+            <div className="mt-14 overflow-hidden rounded-xl border border-line bg-inkwell">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={heroImage} alt="" aria-hidden="true" className="aspect-[21/9] w-full object-cover" />
+            </div>
+          )}
         </div>
       </section>
 
