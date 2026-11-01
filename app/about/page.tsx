@@ -6,7 +6,7 @@ import { PageHero, SectionHead, FinalCTA } from "@/components/ui";
 export const metadata: Metadata = {
   title: "About ACEDTC | Esad Kajosevic, Executive Consulting & Implementation",
   description:
-    "ACEDTC is led by Esad Kajosevic, a 30-year executive advisor with experience at Kia America, Hyundai, Prime Healthcare, and across B2B, automotive, healthcare, and construction.",
+    "ACEDTC is led by Esad Kajosevic, a 30-year executive advisor with experience at Kia America, Medical Database, Gnosis Diagnostic, and across B2B, automotive, healthcare, and construction.",
 };
 
 const expertise = [
@@ -52,7 +52,7 @@ const industries = [
   },
   {
     name: "Healthcare & Health Technology",
-    clients: "Prime Healthcare, Medical Database",
+    clients: "Medical Database, Gnosis Diagnostic",
     body: "Supporting organizations at the intersection of healthcare operations and business strategy: digital transformation, go-to-market execution, and internal systems that support growth at scale.",
     forClients: "Growth in healthcare requires strategic clarity and operational discipline. ACEDTC brings both, with an understanding of the sector's communication and patient journey dynamics.",
   },
@@ -158,7 +158,7 @@ export default function AboutPage() {
                     <div className="border-t border-line pt-6">
                       <p className="eyebrow mb-3 text-accent">Named client experience</p>
                       <div className="space-y-1.5">
-                        {["Kia America", "Hyundai Motor Company", "JM&A Group", "Prime Healthcare", "Morgner Construction Management"].map((c) => (
+                        {["Kia America", "Medical Database", "JM&A Group", "Gnosis Diagnostic", "Morgner Construction Management"].map((c) => (
                           <p key={c} className="text-sm font-medium text-ink">{c}</p>
                         ))}
                       </div>

@@ -74,7 +74,7 @@ const channels = [
   { label: "Events", fig: "3%" },
 ];
 
-const clients = ["Kia America", "Hyundai Motor Company", "JM&A Group", "Prime Healthcare", "Morgner Construction"];
+const clients = ["Kia America", "Medical Database", "JM&A Group", "Gnosis Diagnostic", "Morgner Construction"];
 
 const problems = [
   { k: "Untracked", title: "Revenue has no source", body: "Money goes out, leads come in, and no one can say which campaigns actually produced closed revenue." },

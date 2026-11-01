@@ -5,7 +5,7 @@ import { PageHero, SectionHead, FinalCTA } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Industries Served | ACEDTC Automotive, Healthcare, Construction & More",
   description:
-    "ACEDTC brings cross-industry experience across automotive, healthcare, construction, B2B services, and technology, with named client experience at Kia America, Hyundai, Prime Healthcare, and Morgner Construction.",
+    "ACEDTC brings cross-industry experience across automotive, healthcare, construction, B2B services, and technology, with named client experience at Kia America, Medical Database, Gnosis Diagnostic, and Morgner Construction.",
 };
 
 const industries: {
@@ -25,7 +25,7 @@ const industries: {
   {
     name: "Healthcare & Health Technology",
     image: "/industry-healthcare.png",
-    clients: "Prime Healthcare, Medical Database",
+    clients: "Medical Database, Gnosis Diagnostic",
     body: "Healthcare organizations face a unique combination of growth complexity: regulated communication requirements, patient journey dynamics that differ from traditional B2B sales, and the operational challenge of scaling clinical capacity alongside administrative performance. ACEDTC brings digital transformation strategy, business development planning, and operational improvement to healthcare organizations at multiple growth stages.",
     challenges: ["Patient acquisition and intake optimization", "Digital marketing in a compliance-aware environment", "CRM and communication system implementation", "Operational efficiency and scheduling performance", "Go-to-market strategy for new service lines or locations"],
   },
@@ -56,7 +56,7 @@ const industries: {
   },
 ];
 
-const names = ["Kia America", "Hyundai Motor Company", "JM&A Group", "Prime Healthcare", "Morgner Construction Management", "B2B Service Firms"];
+const names = ["Kia America", "Medical Database", "JM&A Group", "Gnosis Diagnostic", "Morgner Construction Management", "B2B Service Firms"];
 
 export default function IndustriesPage() {
   return (
